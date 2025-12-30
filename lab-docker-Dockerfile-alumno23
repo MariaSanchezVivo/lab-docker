@@ -1,0 +1,14 @@
+# 1.Partimos de la imagen base Python 3.11
+FROM python:3.11-slim
+
+# 2.Directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# 3.Copiar el notebook al contenedor
+COPY reduc-operation-array-par-alumno23.ipynb /app/
+
+# 4.Instalar los paquetes necesarios
+RUN pip install --no-cache-dir jupyter numpy numba
+
+# 5.Comando por defecto al ejecutar el contenedor
+CMD ["ipython", "/app/reduc-operation-array-par-alumno23.ipynb", "10**5"]
